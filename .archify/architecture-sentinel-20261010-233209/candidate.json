@@ -1,0 +1,432 @@
+{
+    "schema_version":  1,
+    "diagram_type":  "architecture",
+    "meta":  {
+                 "title":  "SENTINEL - Human Safety Architecture",
+                 "subtitle":  "Web privacy analysis and Android notification-based threat detection",
+                 "output":  "sentinel-architecture.html",
+                 "quality_profile":  "showcase",
+                 "repository":  {
+                                    "url":  "https://github.com/avigneshtk/sentinel",
+                                    "provider":  "github",
+                                    "link_mode":  "web",
+                                    "revision":  "7a0e04c10e0f942b11ea9ebfe034ded73f0b9b02"
+                                },
+                 "legend":  {
+                                "mode":  "all"
+                            }
+             },
+    "layout":  {
+                   "mode":  "grid",
+                   "origin":  [
+                                  40,
+                                  40
+                              ],
+                   "cols":  3,
+                   "gapX":  100,
+                   "gapY":  85,
+                   "cellW":  205,
+                   "cellH":  100
+               },
+    "components":  [
+                       {
+                           "id":  "user",
+                           "type":  "external",
+                           "label":  "Person at Risk",
+                           "sublabel":  "Reviews findings and safety advice",
+                           "icon":  "person",
+                           "row":  0,
+                           "col":  0,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "web-ui",
+                           "type":  "frontend",
+                           "label":  "SENTINEL Web App",
+                           "sublabel":  "Next.js / React interface",
+                           "icon":  "frontend",
+                           "sources":  [
+                                           {
+                                               "path":  "src/app/(platform)/analyze/page.tsx",
+                                               "line":  3,
+                                               "label":  "Analysis UI"
+                                           },
+                                           {
+                                               "path":  "src/components/layout/navbar.tsx",
+                                               "label":  "Navigation"
+                                           }
+                                       ],
+                           "row":  1,
+                           "col":  0,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "conversation",
+                           "type":  "backend",
+                           "label":  "Conversation Analyzer",
+                           "sublabel":  "Parses text and coordinates analysis",
+                           "icon":  "backend",
+                           "sources":  [
+                                           {
+                                               "path":  "src/lib/analysis/analyze-conversation.ts",
+                                               "line":  70,
+                                               "label":  "Analysis function"
+                                           },
+                                           {
+                                               "path":  "src/lib/analysis/parse-conversation.ts",
+                                               "label":  "Text parser"
+                                           }
+                                       ],
+                           "row":  1,
+                           "col":  1,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "rules",
+                           "type":  "security",
+                           "label":  "Threat Rules Engine",
+                           "sublabel":  "Signals, findings and escalation",
+                           "icon":  "security",
+                           "sources":  [
+                                           {
+                                               "path":  "src/lib/analysis/rules/index.ts",
+                                               "label":  "Rule registry"
+                                           },
+                                           {
+                                               "path":  "src/lib/analysis/analyze-escalation.ts",
+                                               "label":  "Escalation logic"
+                                           }
+                                       ],
+                           "row":  1,
+                           "col":  2,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "privacy",
+                           "type":  "security",
+                           "label":  "Privacy Scanner",
+                           "sublabel":  "Browser OCR and exposure detection",
+                           "icon":  "security",
+                           "sources":  [
+                                           {
+                                               "path":  "src/components/privacy-scanner/scan-panel.tsx",
+                                               "line":  79,
+                                               "label":  "Scan workflow"
+                                           },
+                                           {
+                                               "path":  "src/lib/privacy-scanner/detect-exposures.ts",
+                                               "label":  "Exposure rules"
+                                           },
+                                           {
+                                               "path":  "src/lib/privacy-scanner/ocr.ts",
+                                               "label":  "Browser OCR"
+                                           }
+                                       ],
+                           "row":  2,
+                           "col":  0,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "browser-incidents",
+                           "type":  "database",
+                           "label":  "Browser Incident Store",
+                           "sublabel":  "Opt-in localStorage persistence",
+                           "icon":  "database",
+                           "sources":  [
+                                           {
+                                               "path":  "src/components/incidents/incidents-provider.tsx",
+                                               "line":  27,
+                                               "label":  "Storage key"
+                                           },
+                                           {
+                                               "path":  "src/lib/timeline/incidents.ts",
+                                               "label":  "Incident model"
+                                           }
+                                       ],
+                           "row":  2,
+                           "col":  1,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "android-ui",
+                           "type":  "frontend",
+                           "label":  "Android App",
+                           "sublabel":  "Kotlin and Jetpack Compose",
+                           "icon":  "frontend",
+                           "sources":  [
+                                           {
+                                               "path":  "android-app/app/src/main/java/org/sentinel/app/MainActivity.kt",
+                                               "label":  "App entry"
+                                           },
+                                           {
+                                               "path":  "android-app/app/src/main/java/org/sentinel/app/MainNavigation.kt",
+                                               "label":  "Navigation"
+                                           }
+                                       ],
+                           "row":  3,
+                           "col":  0,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "messaging",
+                           "type":  "external",
+                           "label":  "Messaging Apps",
+                           "sublabel":  "Supported apps\u0027 posted notifications",
+                           "icon":  "external",
+                           "sources":  [
+                                           {
+                                               "path":  "android-app/app/src/main/java/org/sentinel/app/service/SentinelNotificationListener.kt",
+                                               "line":  55,
+                                               "label":  "Supported packages"
+                                           }
+                                       ],
+                           "row":  3,
+                           "col":  1,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "listener",
+                           "type":  "backend",
+                           "label":  "Notification Listener",
+                           "sublabel":  "Permission check, filtering and deduplication",
+                           "icon":  "backend",
+                           "sources":  [
+                                           {
+                                               "path":  "android-app/app/src/main/java/org/sentinel/app/service/SentinelNotificationListener.kt",
+                                               "line":  28,
+                                               "label":  "Notification callback"
+                                           },
+                                           {
+                                               "path":  "android-app/app/src/main/AndroidManifest.xml",
+                                               "label":  "Service declaration"
+                                           }
+                                       ],
+                           "row":  3,
+                           "col":  2,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "detector",
+                           "type":  "security",
+                           "label":  "Android Threat Detector",
+                           "sublabel":  "Deterministic pattern-based checks",
+                           "icon":  "security",
+                           "sources":  [
+                                           {
+                                               "path":  "android-app/app/src/main/java/org/sentinel/app/engine/ThreatDetector.kt",
+                                               "line":  42,
+                                               "label":  "Threat patterns"
+                                           }
+                                       ],
+                           "row":  4,
+                           "col":  2,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "android-incidents",
+                           "type":  "database",
+                           "label":  "Android Incident State",
+                           "sublabel":  "In-memory StateFlow; not durable storage",
+                           "icon":  "database",
+                           "sources":  [
+                                           {
+                                               "path":  "android-app/app/src/main/java/org/sentinel/app/repository/IncidentRepository.kt",
+                                               "line":  18,
+                                               "label":  "Incident state"
+                                           }
+                                       ],
+                           "row":  4,
+                           "col":  1,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       },
+                       {
+                           "id":  "alerts",
+                           "type":  "frontend",
+                           "label":  "Discreet Safety Alert",
+                           "sublabel":  "Android notification for elevated concern",
+                           "icon":  "security",
+                           "sources":  [
+                                           {
+                                               "path":  "android-app/app/src/main/java/org/sentinel/app/service/SentinelNotificationListener.kt",
+                                               "line":  106,
+                                               "label":  "Safety alert"
+                                           }
+                                       ],
+                           "row":  5,
+                           "col":  2,
+                           "size":  [
+                                        180,
+                                        100
+                                    ]
+                       }
+                   ],
+    "boundaries":  [
+                       {
+                           "kind":  "region",
+                           "label":  "Web application - browser-side analysis and storage",
+                           "wraps":  [
+                                         "web-ui",
+                                         "conversation",
+                                         "rules",
+                                         "privacy",
+                                         "browser-incidents"
+                                     ],
+                           "pad":  28
+                       },
+                       {
+                           "kind":  "region",
+                           "label":  "Android device - notification monitoring and local detection",
+                           "wraps":  [
+                                         "android-ui",
+                                         "listener",
+                                         "detector",
+                                         "android-incidents",
+                                         "alerts"
+                                     ],
+                           "pad":  28
+                       }
+                   ],
+    "connections":  [
+                        {
+                            "id":  "user-web",
+                            "from":  "user",
+                            "to":  "web-ui",
+                            "label":  "Enter conversation / review findings",
+                            "variant":  "emphasis"
+                        },
+                        {
+                            "id":  "web-analysis",
+                            "from":  "web-ui",
+                            "to":  "conversation",
+                            "label":  "Analyze submitted text"
+                        },
+                        {
+                            "id":  "analysis-rules",
+                            "from":  "conversation",
+                            "to":  "rules",
+                            "label":  "Evaluate signals"
+                        },
+                        {
+                            "id":  "rules-results",
+                            "from":  "rules",
+                            "to":  "web-ui",
+                            "label":  "Findings and escalation guidance",
+                            "variant":  "emphasis"
+                        },
+                        {
+                            "id":  "web-privacy",
+                            "from":  "web-ui",
+                            "to":  "privacy",
+                            "label":  "Scan image / caption"
+                        },
+                        {
+                            "id":  "privacy-results",
+                            "from":  "privacy",
+                            "to":  "web-ui",
+                            "label":  "Exposure findings",
+                            "labelDx":  70
+                        },
+                        {
+                            "id":  "web-incidents",
+                            "from":  "web-ui",
+                            "to":  "browser-incidents",
+                            "label":  "User-managed incident records"
+                        },
+                        {
+                            "id":  "android-notifications",
+                            "from":  "messaging",
+                            "to":  "listener",
+                            "label":  "Posted notifications",
+                            "variant":  "security"
+                        },
+                        {
+                            "id":  "listener-detect",
+                            "from":  "listener",
+                            "to":  "detector",
+                            "label":  "Extracted message text",
+                            "variant":  "security"
+                        },
+                        {
+                            "id":  "detect-incidents",
+                            "from":  "detector",
+                            "to":  "android-incidents",
+                            "label":  "Store detected concerns",
+                            "variant":  "security"
+                        },
+                        {
+                            "id":  "detect-alert",
+                            "from":  "detector",
+                            "to":  "alerts",
+                            "label":  "Elevated concern only",
+                            "variant":  "security"
+                        },
+                        {
+                            "id":  "android-review",
+                            "from":  "android-ui",
+                            "to":  "android-incidents",
+                            "label":  "Observe incident state"
+                        }
+                    ],
+    "cards":  [
+                  {
+                      "dot":  "cyan",
+                      "title":  "Web safety capabilities",
+                      "items":  [
+                                    "Conversation analysis uses local rule modules and escalation logic.",
+                                    "Privacy scanning combines browser-side OCR with phone, email, address and document exposure checks.",
+                                    "Incident persistence is opt-in and stored in browser localStorage."
+                                ]
+                  },
+                  {
+                      "dot":  "rose",
+                      "title":  "Android detection path",
+                      "items":  [
+                                    "Monitoring requires Android notification-listener access and the monitoring setting to be enabled.",
+                                    "Only explicitly supported notification package names are processed.",
+                                    "The current incident repository uses in-memory StateFlow and clears when the process state is lost."
+                                ]
+                  },
+                  {
+                      "dot":  "amber",
+                      "title":  "Safety and trust limitations",
+                      "items":  [
+                                    "Pattern matches are indicators, not proof that abuse or fraud occurred.",
+                                    "Users should review findings and choose appropriate safety actions.",
+                                    "The web and Android paths are shown separately because no direct connection between them has been established."
+                                ]
+                  }
+              ]
+}

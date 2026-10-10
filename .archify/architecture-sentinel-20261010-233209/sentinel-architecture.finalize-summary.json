@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\AVIGNESH T K\\OneDrive\\Desktop\\sentinel\\.archify\\architecture-sentinel-20261010-233209\\candidate.json",
+    "sha256": "46c4d69d7decd8512e32f286d301985c427a0dcba7fe1c7083f7c8d5113c11ac",
+    "bytes": 21987
+  },
+  "artifact": {
+    "path": "C:\\Users\\AVIGNESH T K\\OneDrive\\Desktop\\sentinel\\.archify\\architecture-sentinel-20261010-233209\\sentinel-architecture.html",
+    "sha256": "482b12fa115f386f0bf9c4ce8236ceb03610b8df85e93dd804fd4604f3b5970f",
+    "bytes": 782510
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "fail"
+  },
+  "failedStage": "browser-check",
+  "diagnostics": [
+    {
+      "code": "viewer/evidence-path-conflict",
+      "severity": "error",
+      "message": "browser-check will not replace the existing unowned evidence path \"C:\\Users\\AVIGNESH T K\\OneDrive\\Desktop\\sentinel\\.archify\\architecture-sentinel-20261010-233209\\sentinel-architecture.browser-check.json\".",
+      "subject": {
+        "artifact": "C:\\Users\\AVIGNESH T K\\OneDrive\\Desktop\\sentinel\\.archify\\architecture-sentinel-20261010-233209\\sentinel-architecture.html",
+        "evidencePath": "C:\\Users\\AVIGNESH T K\\OneDrive\\Desktop\\sentinel\\.archify\\architecture-sentinel-20261010-233209\\sentinel-architecture.browser-check.json"
+      },
+      "evidence": {
+        "reason": {
+          "code": "ownership-artifact-mismatch"
+        }
+      },
+      "supportedFixes": [
+        "move the conflicting file aside, or choose a separate --out-dir, then rerun browser-check"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\AVIGNESH T K\\OneDrive\\Desktop\\sentinel\\.archify\\architecture-sentinel-20261010-233209\\sentinel-architecture.finalize.json",
+    "summaryReceipt": "C:\\Users\\AVIGNESH T K\\OneDrive\\Desktop\\sentinel\\.archify\\architecture-sentinel-20261010-233209\\sentinel-architecture.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\AVIGNESH T K\\OneDrive\\Desktop\\sentinel\\.archify\\architecture-sentinel-20261010-233209\\sentinel-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.0.1",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-10T18:02:11.566Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2318
+}
